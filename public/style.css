@@ -1,0 +1,107 @@
+
+html {
+  overflow-x: hidden;
+  min-height: 100vh;
+  font-family: 'Helvetica, sans-serif';
+}
+
+body {
+  line-height: 1.2;
+  cursor: default;
+  color: #231f20;
+}
+
+main {
+  position: relative;
+  min-height: 100vh;
+}
+
+/*** WEBDOOR  ***/
+
+.webdoor{
+  position: relative;
+  width: 100vw;
+  height: 600px;
+  background-image:url('img/background-main.jpg');
+  background-size: cover;
+  color: #FFF;
+  text-align: center;
+}
+
+.webdoor .w-content{
+  width: 100%;
+}
+
+.webdoor h1{
+  font-size: 50px;
+  font-family: Arial Black;
+  text-transform: uppercase;
+}
+
+.webdoor p{
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.webdoor button{
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+/*** STEPS  ***/
+.steps{
+  position: relative;
+  width: 100%;
+  padding: 50px 20px;
+}
+
+.steps li{
+  list-style-type: none; 
+  margin-bottom: 20px;
+}
+
+.steps h2{
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.steps span{
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+  display: block;
+  width: 100%;
+}
+
+.steps p{
+  font-size: 18px;
+  line-height: 24px;
+  margin-top: 10px;
+}
+
+form span.f-error{
+  color: red;
+  font-size: 12px;
+  display: none;
+  margin-top: 10px;
+}
+
+form span.show{
+  display: block;
+}
+
+form input.f-error{
+  border-color:red; 
+}
+
+
+/*** FOOTER ***/
+footer{
+  position: relative;
+  width: 100%;
+  text-align: center;
+  display: block; 
+  font-size: 12px;
+}

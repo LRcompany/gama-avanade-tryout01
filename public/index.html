@@ -3,16 +3,125 @@
 <head>
 	<title>Avanade Angular Academy by Gama - Simulado #1</title>
 	<meta charset="utf-8">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <link href="style.css" rel="stylesheet">
 </head>
 <body>
-<main role="main" id="main"></main>
-<script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
+<main role="main" id="main">
+
+  <section class="webdoor container-fluid d-flex">
+    <div class="w-content align-self-center">
+      <h1><b>Dê propósito para seu código</b></h1>
+      <p>Cansado de desenvolver projetos sem sentido? Participe do Avanade Angular Academy</p>
+      <button type="button" id="btn-apply-form" class="btn btn-success" data-toggle="modal" data-target="#apply-modal">Inscreva-se</button>
+    </div>
+  </section>
+
+  <section class="steps container-fluid">
+    <ul class="row">
+      <li class="col-sm-12 col-md-6 col-lg-3">
+        <h2>Inscrições</h2>
+        <span>02/dez a 05/jan</span>
+        <p>
+          Para se inscrever basta preencher o formulário e se preparar para o nosso teste técnico com cursos online e simulados.
+        </p>
+      </li>
+      <li class="col-sm-12 col-md-6 col-lg-3">
+        <h2>Teste Técnico</h2>
+        <span>05/jan a 06/jan</span>
+        <p>
+          Em seguida prove que você está preparado fazendo os testes técnicos totalmente mão na massa.
+        </p>
+      </li>
+      <li class="col-sm-12 col-md-6 col-lg-3">
+        <h2>Seleção e Contratação</h2>
+        <span>07/jan a 14/jan</span>
+        <p>
+          Os melhores candidatos serão entrevistados e contratados pela Avanade.
+        </p>
+      </li>
+      <li class="col-sm-12 col-md-6 col-lg-3">
+        <h2>Treinamento</h2>
+        <span>15/jan a 26/jan</span>
+        <p>
+          Serão duas semanas de treinamento super hands-on com os melhores devs do mercado.
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Modal -->
+  <div class="modal fade" id="apply-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" >Inscrição</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <form id="form">
+            <div class="form-group">
+              <label for="name">Nome:</label>
+              <input type="text" class="form-control" id="name" placeholder="Digite o seu nome" autofocus>
+              <span id="feedback-name" class="e-name f-msg f-error hide">Não pode estar vazio.</span>
+            </div>
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" class="form-control" id="email" placeholder="Digite o seu email">
+              <span id="feedback-email" class="e-email f-msg f-error hide">f-error</span>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button id="btn-apply" type="button" class="btn btn-primary">Enviar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="apply-error" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" >Ops ;(</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            Ocorreu algum problema, iremos resolver.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="success-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" > Opa :)</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            Cadastro enviado com sucesso!
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>®2018</footer>
+
+</main>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+<script src="script.js"></script>
 </body>
 </html>
