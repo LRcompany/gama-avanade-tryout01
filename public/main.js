@@ -8,7 +8,23 @@ var $modalSuccess   = $('#success-modal');
 var $modalError     = $('#apply-error');
 
 
-function init(){
+$(document).ready(	
+	function(){
+		// CONNECT
+		connectInit();
+		
+		// ONLOAD
+		$(window).load(
+			function(){
+				onloadInit();
+			}
+		);
+		setTimeout( onloadInit, 3000 );
+	}
+);
+
+
+function onloadInit(){
     $btnApply.on('click', sendForm);
 }
 
@@ -75,4 +91,4 @@ function alertError(){
 
 
 // INIT
-init();
+// init();

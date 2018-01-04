@@ -20,28 +20,28 @@
 
   <section class="steps container-fluid">
     <ul class="row">
-      <li class="col-sm-12 col-md-6 col-lg-3">
+      <li class="col-sm-12 col-md-3 col-lg-3">
         <h2>Inscrições</h2>
         <span>02/dez a 05/jan</span>
         <p>
           Para se inscrever basta preencher o formulário e se preparar para o nosso teste técnico com cursos online e simulados.
         </p>
       </li>
-      <li class="col-sm-12 col-md-6 col-lg-3">
+      <li class="col-sm-12 col-md-3 col-lg-3">
         <h2>Teste Técnico</h2>
         <span>05/jan a 06/jan</span>
         <p>
           Em seguida prove que você está preparado fazendo os testes técnicos totalmente mão na massa.
         </p>
       </li>
-      <li class="col-sm-12 col-md-6 col-lg-3">
+      <li class="col-sm-12 col-md-3 col-lg-3">
         <h2>Seleção e Contratação</h2>
         <span>07/jan a 14/jan</span>
         <p>
           Os melhores candidatos serão entrevistados e contratados pela Avanade.
         </p>
       </li>
-      <li class="col-sm-12 col-md-6 col-lg-3">
+      <li class="col-sm-12 col-md-3 col-lg-3">
         <h2>Treinamento</h2>
         <span>15/jan a 26/jan</span>
         <p>
@@ -122,6 +122,93 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-<script src="script.js"></script>
+<script>
+  'use strict';
+
+var $formName       = $("#name");
+var $formEmail      = $("#email");
+var $btnApply       = $('#btn-apply');
+var $modalForm      = $('#apply-modal');
+var $modalSuccess   = $('#success-modal');
+var $modalError     = $('#apply-error');
+
+
+$(document).ready(	
+	function(){
+		
+	onloadInit();
+	
+});
+
+
+function onloadInit(){
+    $btnApply.on('click', sendForm);
+}
+
+
+function sendForm() {
+    
+    var _name = $formName.val();
+    var _mail = $formEmail.val();
+
+    $.ajax({
+        method: 'POST',
+        url: 'http://avanade.gama.academy/api/process_applications',
+        dataType: 'json',
+        headers: { EMAIL: 'tellme@luizrodrigues.com' },
+        contentType: 'application/json',
+        data: JSON.stringify({ process_application: { name: _name, email: _mail } }),
+        success: function (json) {
+            alertSuccess();
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+    
+            var _response = jqXHR.responseJSON;
+
+            alertError();
+
+            $('.form-control').removeClass('f-error');
+            $('.f-msg').removeClass('show');
+            $('.f-msg').html('');
+            
+            for(var type in _response) {
+                
+                var _type   = type;
+                var _msg    = _response[type].toString();
+
+                $('#'+_type).addClass('f-error');
+                $('.e-'+_type).addClass('show');
+                $('.e-'+_type).html(_msg);
+            }
+
+            
+            
+        }
+    });
+
+    
+}
+
+function resetForm(){
+    $("#name").val('');
+    $("#email").val('');
+}
+
+function alertSuccess(){
+    $modalForm.modal('hide');
+    $modalSuccess.modal('show');
+    $form.classList.remove('was-validated');
+    resetForm();
+}
+
+function alertError(){
+    $modalError.modal('show');
+}
+
+
+
+// INIT
+// init();
+</script>
 </body>
 </html>
