@@ -23,10 +23,10 @@ main {
   width: 100vw;
   height: 370px;
   background-image:url('img/background-main.jpg');
-  background-size: 700%;
+  background-size: 800%;
   color: #FFF;
   text-align: center;
-  background-position: 0% 50%;
+  background-position: 0% 49.5%;
 }
 
 .webdoor .w-content{
@@ -35,20 +35,24 @@ main {
 
 .webdoor h1{
   font-size: 40px;
+  line-height: 45px;
+  padding: 0px 10px;
   font-family: Arial Black;
   text-transform: uppercase;
-  padding: 0px 20px;
+  letter-spacing: -.5px;
 }
 
 .webdoor p{
   font-size: 18px;
-  line-height: 22px;
+  line-height: 24px;
   margin-top: 20px;
-  padding: 0px 20px;
+  padding: 0px 70px;
+  margin-bottom: 0px;
+  letter-spacing: -0.5px;
 }
 
 .webdoor button{
-  font-size: 20px;
+  font-size: 18px;
   margin-top: 20px;
 }
 
@@ -56,25 +60,25 @@ main {
 .steps{
   position: relative;
   width: 100%;
-  padding: 40px 0px;
+  padding: 35px 0px;
 }
 
 .steps .row{
   padding: 0px;
-  margin: 0px 20px;
+  margin: 0px 10px;
 }
 
 .steps li{
   list-style-type: none; 
   margin-bottom: 20px;
-  padding: 0px 5px;
+  padding: 0px 19px;
 }
 
 .steps h2{
   font-size: 16px;
+  line-height: 23px;
   text-align: center;
   font-weight: bold;
-  letter-spacing: 1px;
 }
 
 .steps span{
@@ -86,10 +90,17 @@ main {
 }
 
 .steps p{
-  font-size: 16px;
-  line-height: 24px;
-  margin-top: 30px;
+  font-size: 15px;
+  line-height: 23px;
+  margin-top: 20px;
 }
+
+
+/** FORM **/
+#apply-error,
+  #apply-success {
+    display: none;
+  }
 
 form span.f-error{
   color: red;
@@ -114,4 +125,30 @@ footer{
   text-align: center;
   display: block; 
   font-size: 12px;
+}
+
+
+@media ( max-width: 600px ) {
+  .webdoor h1{
+    font-size: 38px;
+    line-height: 44px;
+  }
+
+  .webdoor p{
+    padding: 0px 20px;
+    font-size: 16px;
+  }
+
+  .webdoor button{
+    font-size: 16px;
+  }
+
+  .steps p{
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  .steps span{
+    font-size: 12px;
+  }
 }
